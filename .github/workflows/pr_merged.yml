@@ -1,4 +1,4 @@
-name: Auto Comment on PR Merged
+name: Auto Comment on PR Merge
 
 on:
   pull_request_target:
@@ -10,14 +10,15 @@ permissions:
 
 jobs:
   comment:
-    runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
     steps:
-    - name: Add Comment to Pull Request
-      run: |
+     - name: Add Comment to Merged PR
+       run: |
         COMMENT=$(cat <<EOF
         {
-          "body": "Great work @${{ github.event.pull_request.user.login }} !! \nDo not forget to \n+ Share your contribution on socials and tag Clueless 🫂 \n+ Give this repository a star ✨ \n+ Follow Clueless Community on GitHub ✅"
+          "body": "🎉 Your pull request has been successfully merged! 🎉 Thank you for your contribution to our project. Your efforts are greatly appreciated. Keep up the fantastic work! 🚀"
         }
         EOF
         )
@@ -32,5 +33,5 @@ jobs:
           echo "Failed to add comment"
           exit 1
         fi
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
