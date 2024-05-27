@@ -5,7 +5,7 @@ guiwindow = tk.Tk()
 guiwindow.title("Dice Simulator")
 guiwindow.geometry("500x500")
 
-
+#dice
 dicelabel = tk.Label(guiwindow, text="Dice", font=("Arial", 72))
 dicelabel.pack(padx=20, pady=20)
 
