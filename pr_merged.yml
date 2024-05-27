@@ -1,4 +1,4 @@
-name: Auto Comment on PR Merge
+name: Auto Comment on PR Merged
 
 on:
   pull_request_target:
